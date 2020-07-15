@@ -1,0 +1,85 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add a New Product</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput formControlName="productName" placeholder="Product Name" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput formControlName="description" placeholder="Description" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput formControlName="qty" placeholder="QTY" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput formControlName="unitPrice" placeholder="Unit Price" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput formControlName="sellingPrice" placeholder="Selling Price" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput formControlName="discount" placeholder="Discount" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Age Limit</mat-label>
+                                <mat-select>
+                                    <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.id">
+                                        {{subCategory.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Category</mat-label>
+                                <mat-select>
+                                    <mat-option *ngFor="let category of categories" [value]="category.id">
+                                        {{category.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div class="pull-right">
+                                <button mat-raised-button type="submit" *ngIf="!isUpdate" (click)="saveProduct()" class="btn btn-danger">Save</button>
+                                <button mat-raised-button type="submit" *ngIf="isUpdate" (click)="updateProduct()" class="btn btn-danger">Update</button>
+                                <button mat-raised-button type="submit" *ngIf="isUpdate"  class="btn btn-danger">Delete</button>
+                                <button mat-raised-button type="button" (click)="resetForm()" class="cancelButton">Clear</button>
+                                <button mat-raised-button type="button" routerLink="/products" class="cancelButton">Cancel</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

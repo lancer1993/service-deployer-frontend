@@ -1,0 +1,131 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="addButton">
+            <button
+              mat-raised-button
+              type="submit"
+              class="btn btn-danger pull-right"
+              routerLink="/add-product"
+            >
+              Add a New Product
+            </button>
+          </div>
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Product List</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Category
+                  </th>
+                  <th>
+                    Age Range
+                  </th>
+                  <th>
+                    Price
+                  </th>
+                  <th></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1
+                    </td>
+                    <td>
+                      Party Shirt
+                    </td>
+                    <td>
+                      Party Dressers
+                    </td>
+                    <td>
+                      0-5
+                    </td>
+                    <td class="text-primary">
+                      2500
+                    </td>
+                    <td class="clickable" routerLink="/edit-product">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        delete
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2
+                    </td>
+                    <td>
+                      Night Shirt
+                    </td>
+                    <td>
+                      Night Dressers
+                    </td>
+                    <td>
+                      5-10
+                    </td>
+                    <td class="text-primary">
+                      3000
+                    </td>
+                    <td class="clickable" routerLink="/edit-product">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        delete
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      3
+                    </td>
+                    <td>
+                      Normal Shirt
+                    </td>
+                    <td>
+                      Normal Dressers
+                    </td>
+                    <td>
+                      10-15
+                    </td>
+                    <td class="text-primary">
+                      1000
+                    </td>
+                    <td class="clickable" routerLink="/edit-product">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        delete
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
