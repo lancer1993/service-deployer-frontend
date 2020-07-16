@@ -16,6 +16,7 @@ import { EnvironmentDataComponent } from "./environment-data/environment-data.co
 import { ReleaseInformationComponent } from "./release-information/release-information.component";
 import { AddServiceComponent } from './add-service/add-service.component';
 import { AddEnvironmentComponent } from './add-environment/add-environment.component';
+import { DeploymentComponent } from './deployment/deployment.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { AddEnvironmentComponent } from './add-environment/add-environment.compo
     ReleaseInformationComponent,
     AddServiceComponent,
     AddEnvironmentComponent,
+    DeploymentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

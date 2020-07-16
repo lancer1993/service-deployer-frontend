@@ -1,25 +1,25 @@
 <div class="main-content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="addButton">
-              <button
-                mat-raised-button
-                type="submit"
-                class="btn btn-danger pull-right"
-                routerLink="/add-product"
-              >
-                Add a New Environment
-              </button>
-            </div>
-            <div class="card-header card-header-danger">
-              <h4 class="card-title">Environment List</h4>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class="text-primary"></thead>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="addButton">
+            <button
+              mat-raised-button
+              type="submit"
+              class="btn btn-danger pull-right"
+              routerLink="/add-product"
+            >
+              Add a New Environment
+            </button>
+          </div>
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Environment List</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
                   <th>
                     Environment Name
                   </th>
@@ -27,19 +27,142 @@
                     Description
                   </th>
                   <th>
-                    Created Date
+                    Added Time
                   </th>
                   <th>
-                    Created By
+                    Added By
                   </th>
                   <th></th>
                   <th></th>
-                </table>
-              </div>
+                </thead>
+                <tbody>
+                  <tr style="text-align: left;">
+                    <td style="padding-left: 10px;">
+                      Development
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Development server acting as a sandbox where unit testing
+                      may be performed by the developer
+                    </td>
+                    <td style="padding-left: 10px;">
+                      2020-07-16 14:00:00
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Terance Wijesuriya
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        desktop_access_disabled
+                      </span>
+                    </td>
+                  </tr>
+                  <tr style="text-align: left;">
+                    <td style="padding-left: 10px;">
+                      Integration
+                    </td>
+                    <td style="padding-left: 10px;">
+                      CI build target, or for developer testing of side effects
+                    </td>
+                    <td style="padding-left: 10px;">
+                      2020-07-16 14:05:00
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Terance Wijesuriya
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        desktop_access_disabled
+                      </span>
+                    </td>
+                  </tr>
+                  <tr style="text-align: left;">
+                    <td style="padding-left: 10px;">
+                      Testing
+                    </td>
+                    <td style="padding-left: 10px;">
+                      The environment where interface testing is performed.
+                    </td>
+                    <td style="padding-left: 10px;">
+                      2020-07-16 14:10:00
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Terance Wijesuriya
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        desktop_access_disabled
+                      </span>
+                    </td>
+                  </tr>
+                  <tr style="text-align: left;">
+                    <td style="padding-left: 10px;">
+                      Staging
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Mirror of production environment
+                    </td>
+                    <td style="padding-left: 10px;">
+                      2020-07-16 14:15:00
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Terance Wijesuriya
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        desktop_access_disabled
+                      </span>
+                    </td>
+                  </tr>
+                  <tr style="text-align: left;">
+                    <td style="padding-left: 10px;">
+                      Production
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Serves end-users/clients
+                    </td>
+                    <td style="padding-left: 10px;">
+                      2020-07-16 14:20:00
+                    </td>
+                    <td style="padding-left: 10px;">
+                      Terance Wijesuriya
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        create
+                      </span>
+                    </td>
+                    <td class="clickable">
+                      <span class="material-icons">
+                        desktop_access_disabled
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
