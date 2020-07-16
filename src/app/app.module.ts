@@ -14,9 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ServiceTierComponent } from "./service-tier/service-tier.component";
 import { EnvironmentDataComponent } from "./environment-data/environment-data.component";
 import { ReleaseInformationComponent } from "./release-information/release-information.component";
-import { AddServiceComponent } from './add-service/add-service.component';
-import { AddEnvironmentComponent } from './add-environment/add-environment.component';
-import { DeploymentComponent } from './deployment/deployment.component';
+import { DeploymentComponent } from "./deployment/deployment.component";
 
 @NgModule({
   imports: [
@@ -38,8 +36,6 @@ import { DeploymentComponent } from './deployment/deployment.component';
     ServiceTierComponent,
     EnvironmentDataComponent,
     ReleaseInformationComponent,
-    AddServiceComponent,
-    AddEnvironmentComponent,
     DeploymentComponent,
   ],
   providers: [],

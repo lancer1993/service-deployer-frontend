@@ -4,11 +4,11 @@ import { MatDialog } from "@angular/material/dialog";
 import { ConfirmationDialogComponent } from "../confirmation-dialog/confirmation-dialog.component";
 
 @Component({
-  selector: "app-add-environment",
-  templateUrl: "./add-environment.component.html",
-  styleUrls: ["./add-environment.component.css"],
+  selector: "app-add-component",
+  templateUrl: "./add-component.component.html",
+  styleUrls: ["./add-component.component.css"],
 })
-export class AddEnvironmentComponent implements OnInit {
+export class AddComponentComponent implements OnInit {
   @Input() isUpdate: Boolean;
   @Input() isNew: Boolean;
   @Output() onDelete: EventEmitter<number> = new EventEmitter<number>();

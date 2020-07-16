@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title">Add a New Environment</h4>
+            <h4 class="card-title">Edit Environment</h4>
           </div>
           <div class="card-body">
             <form>
@@ -30,29 +30,10 @@
                 <button
                   mat-raised-button
                   type="submit"
-                  *ngIf="!isUpdate"
                   class="btn btn-danger"
+                  routerLink="/environmet-data"
                 >
-                  Save
-                </button>
-                <button
-                  mat-raised-button
-                  type="submit"
-                  *ngIf="isUpdate"
-                  class="btn btn-danger"
-                >
-                  Update
-                </button>
-                <button
-                  mat-raised-button
-                  type="submit"
-                  *ngIf="isUpdate"
-                  class="btn btn-danger"
-                >
-                  Delete
-                </button>
-                <button mat-raised-button type="button" class="cancelButton">
-                  Clear
+                  Edit
                 </button>
                 <button
                   mat-raised-button
