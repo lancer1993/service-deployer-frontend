@@ -29,6 +29,7 @@ import { AddReleaseComponent } from "../../add-release/add-release.component";
 import { EditReleaseComponent } from "../../edit-release/edit-release.component";
 import { EditComponentComponent } from "../../edit-component/edit-component.component";
 import { EditEnvironmentComponent } from "../../edit-environment/edit-environment.component";
+import { ComponentTypeService } from "../../../services/componentType.service";
 
 @NgModule({
   imports: [
@@ -72,6 +73,11 @@ import { EditEnvironmentComponent } from "../../edit-environment/edit-environmen
     EditComponentComponent,
     EditEnvironmentComponent,
   ],
-  providers: [CategoriesService, SubCategoryService, ProductService],
+  providers: [
+    CategoriesService,
+    SubCategoryService,
+    ProductService,
+    ComponentTypeService,
+  ],
 })
 export class AdminLayoutModule {}
