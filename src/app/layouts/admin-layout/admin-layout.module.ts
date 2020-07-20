@@ -30,6 +30,10 @@ import { EditReleaseComponent } from "../../edit-release/edit-release.component"
 import { EditComponentComponent } from "../../edit-component/edit-component.component";
 import { EditEnvironmentComponent } from "../../edit-environment/edit-environment.component";
 import { ComponentTypeService } from "../../../services/componentType.service";
+import { ComponentService } from "../../../services/component.service";
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
+import { ConfirmDialogService } from '../../../services/confirmDialog.service';
+
 
 @NgModule({
   imports: [
@@ -62,6 +66,7 @@ import { ComponentTypeService } from "../../../services/componentType.service";
     EditReleaseComponent,
     EditComponentComponent,
     EditEnvironmentComponent,
+    ConfirmationDialogComponent,
   ],
   entryComponents: [
     AddProductComponent,
@@ -72,12 +77,15 @@ import { ComponentTypeService } from "../../../services/componentType.service";
     EditReleaseComponent,
     EditComponentComponent,
     EditEnvironmentComponent,
+    ConfirmationDialogComponent,
   ],
   providers: [
     CategoriesService,
     SubCategoryService,
     ProductService,
     ComponentTypeService,
+    ComponentService,
+    ConfirmDialogService,
   ],
 })
 export class AdminLayoutModule {}

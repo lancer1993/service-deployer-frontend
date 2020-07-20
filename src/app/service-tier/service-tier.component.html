@@ -36,67 +36,20 @@
                   <th></th>
                 </thead>
                 <tbody>
-                  <tr style="text-align: left;">
+                  <tr
+                    style="text-align: left;"
+                    *ngFor="let component of components"
+                  >
                     <td style="padding-left: 10px;">
-                      Admin API
-                    </td>
-                    <td style="padding-left: 10px;">
-                      https://github.com/lancer1993/service-deployer-frontend
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-16 12:30:00
+                      {{ component.componentName }}
                     </td>
                     <td style="padding-left: 10px;">
-                      Terance Wijesuriya
-                    </td>
-                    <td class="clickable" routerLink="/edit-component">
-                      <span class="material-icons">
-                        create
-                      </span>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </td>
-                  </tr>
-                  <tr style="text-align: left;">
-                    <td style="padding-left: 10px;">
-                      Order API
+                      {{ component.repositoryUrl }}
                     </td>
                     <td style="padding-left: 10px;">
-                      https://github.com/lancer1993/service-deployer
+                      {{ component.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}
                     </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-15 20:00:00
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Sanjeewa Ariyarathne
-                    </td>
-                    <td class="clickable" routerLink="/edit-component">
-                      <span class="material-icons">
-                        create
-                      </span>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </td>
-                  </tr>
-                  <tr style="text-align: left;">
-                    <td style="padding-left: 10px;">
-                      Uber Eats API
-                    </td>
-                    <td style="padding-left: 10px;">
-                      https://github.com/lancer1993/hazelcast-consumer
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-14 15:30:00
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Thilina Kelum
-                    </td>
+                    <td style="padding-left: 10px;"></td>
                     <td class="clickable" routerLink="/edit-component">
                       <span class="material-icons">
                         create

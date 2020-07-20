@@ -7,13 +7,13 @@
             <h4 class="card-title">Add a New Component</h4>
           </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="form">
               <mat-form-field appearance="fill">
                 <mat-label>Component Type</mat-label>
-                <mat-select>
+                <mat-select formControlName="componentTypeId">
                   <mat-option
                     *ngFor="let componentType of componentTypes"
-                    [value]="componentType.type"
+                    [value]="componentType.id"
                   >
                     {{ componentType.type }}
                   </mat-option>
@@ -22,14 +22,24 @@
               <div class="row">
                 <div class="col-md-12">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Component Name" type="text" />
+                    <input
+                      matInput
+                      formControlName="componentName"
+                      placeholder="Component Name"
+                      type="text"
+                    />
                   </mat-form-field>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Repository URL" type="text" />
+                    <input
+                      matInput
+                      formControlName="repositoryUrl"
+                      placeholder="Repository URL"
+                      type="text"
+                    />
                   </mat-form-field>
                 </div>
               </div>
@@ -39,6 +49,7 @@
                   type="submit"
                   *ngIf="!isUpdate"
                   class="btn btn-danger"
+                  (click)="handleClick()"
                 >
                   Save
                 </button>
@@ -47,6 +58,7 @@
                   type="submit"
                   *ngIf="isUpdate"
                   class="btn btn-danger"
+                  (click)="updateComponent()"
                 >
                   Update
                 </button>
@@ -58,7 +70,12 @@
                 >
                   Delete
                 </button>
-                <button mat-raised-button type="button" class="cancelButton">
+                <button
+                  mat-raised-button
+                  type="button"
+                  class="cancelButton"
+                  (click)="resetForm()"
+                >
                   Clear
                 </button>
                 <button

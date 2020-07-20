@@ -14,10 +14,5 @@ export class ComponentTypeService {
       .get(HttpService.SERVICE_PATH + "component_type", { headers: null })
       .pipe(map((response) => response as ComponentTypeModel[]));
   }
-
-//   getProducts(): Observable<ProductModel[]> {
-//     return this.http
-//       .get(HttpService.SERVICE_PATH + "product", { headers: null })
-//       .pipe(map((response) => response as ProductModel[]));
-//   }
+  
 }
