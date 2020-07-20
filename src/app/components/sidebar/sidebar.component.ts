@@ -22,6 +22,12 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
+    path: "/component-environment",
+    title: "Component Environment",
+    icon: "account_balance",
+    class: "",
+  },
+  {
     path: "/release-information",
     title: "Release Information",
     icon: "new_releases",

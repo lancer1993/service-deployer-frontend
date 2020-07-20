@@ -102,8 +102,8 @@ export class AddComponentComponent implements OnInit {
     this.componentService
       .updateComponent(newComponent)
       .pipe(take(1))
-      .subscribe((component) => {
-        this.component = component;
+      .subscribe((newComponent) => {
+        this.component = newComponent;
         alert("Product Update Successfully!");
       });
   }
@@ -115,13 +115,14 @@ export class AddComponentComponent implements OnInit {
       componentTypeId: [""],
       delete: false,
       active: false,
+      createdAt: new Date(),
     });
   }
 
   handleClick() {
     const options = {
       title: "Confirm Component Submission",
-      message: "Are you sure do you want to save the component?",
+      message: "Are you sure do you want to save this component?",
       cancelText: "CANCEL",
       confirmText: "YES, LEAVE PAGE",
     };

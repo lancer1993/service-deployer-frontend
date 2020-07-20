@@ -1,7 +1,11 @@
 import { Injectable } from "@angular/core";
-import { EnvironmentModel } from "./environment.model";
 
 @Injectable()
 export class ComEnvDetailsModel {
-  environmentModel: EnvironmentModel;
+  id: string;
+  environmentId: string;
+  environmentName: string;
+  componentId: string;
+  componentName: string;
+  createdAt: Date;
 }

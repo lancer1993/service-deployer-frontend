@@ -20,7 +20,8 @@ import { AddProductComponent } from "../../add-product/add-product.component";
 import { EditReleaseComponent } from "../../edit-release/edit-release.component";
 import { EditComponentComponent } from "../../edit-component/edit-component.component";
 import { EditEnvironmentComponent } from "../../edit-environment/edit-environment.component";
-
+import { ComponentEnvironmentComponent } from "../../component-environment/component-environment.component";
+import { AddComponentEnvironmentComponent } from "../../add-component-environment/add-component-environment.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -39,8 +40,13 @@ export const AdminLayoutRoutes: Routes = [
   { path: "add-deployment", component: AddDeploymentComponent },
   { path: "add-environment", component: AddEnvironmentComponent },
   { path: "add-release", component: AddReleaseComponent },
-  { path: "add-product", component: AddProductComponent},
+  { path: "add-product", component: AddProductComponent },
   { path: "edit-environment", component: EditEnvironmentComponent },
   { path: "edit-release", component: EditReleaseComponent },
-  { path: "edit-component", component: EditComponentComponent},
+  { path: "edit-component", component: EditComponentComponent },
+  { path: "component-environment", component: ComponentEnvironmentComponent },
+  {
+    path: "add-component-environment",
+    component: AddComponentEnvironmentComponent,
+  },
 ];

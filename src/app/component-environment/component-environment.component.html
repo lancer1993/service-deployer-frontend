@@ -8,23 +8,23 @@
               mat-raised-button
               type="submit"
               class="btn btn-danger pull-right"
-              routerLink="/add-environment"
+              routerLink="/add-component-environment"
             >
-              Add a New Environment
+              Add a Component Environment
             </button>
           </div>
           <div class="card-header card-header-danger">
-            <h4 class="card-title">Environment List</h4>
+            <h4 class="card-title">Component Environment List</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                 <thead class="text-primary">
                   <th>
-                    Environment Name
+                    Component Name
                   </th>
                   <th>
-                    Description
+                    Environment Name
                   </th>
                   <th>
                     Added Time
@@ -33,33 +33,28 @@
                     Added By
                   </th>
                   <th></th>
-                  <th></th>
                 </thead>
                 <tbody>
                   <tr
                     style="text-align: left;"
-                    *ngFor="let environmentModel of environmentModels"
+                    *ngFor="let comEnvDetailsModel of comEnvDetailsModels"
                   >
                     <td style="padding-left: 10px;">
-                      {{ environmentModel.environmentName }}
+                      {{ comEnvDetailsModel.componentName }}
                     </td>
                     <td style="padding-left: 10px;">
-                      {{ environmentModel.description }}
+                      {{ comEnvDetailsModel.environmentName }}
                     </td>
                     <td style="padding-left: 10px;">
                       {{
-                        environmentModel.createdAt | date: "yyyy-MM-dd HH:mm:ss"
+                        comEnvDetailsModel.createdAt
+                          | date: "yyyy-MM-dd HH:mm:ss"
                       }}
                     </td>
                     <td style="padding-left: 10px;"></td>
-                    <td class="clickable" routerLink="/edit-environment">
-                      <span class="material-icons">
-                        create
-                      </span>
-                    </td>
                     <td class="clickable">
                       <span class="material-icons">
-                        desktop_access_disabled
+                        delete
                       </span>
                     </td>
                   </tr>

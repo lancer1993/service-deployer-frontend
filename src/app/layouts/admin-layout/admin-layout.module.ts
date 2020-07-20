@@ -31,9 +31,11 @@ import { EditComponentComponent } from "../../edit-component/edit-component.comp
 import { EditEnvironmentComponent } from "../../edit-environment/edit-environment.component";
 import { ComponentTypeService } from "../../../services/componentType.service";
 import { ComponentService } from "../../../services/component.service";
-import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
-import { ConfirmDialogService } from '../../../services/confirmDialog.service';
-
+import { ConfirmationDialogComponent } from "../../confirmation-dialog/confirmation-dialog.component";
+import { ConfirmDialogService } from "../../../services/confirmDialog.service";
+import { EnvironmentService } from "../../../services/environment.service";
+import { AddComponentEnvironmentComponent } from "../../add-component-environment/add-component-environment.component";
+import { ComponentEnvironmentService } from "../../../services/componentEnvironment.service";
 
 @NgModule({
   imports: [
@@ -67,6 +69,7 @@ import { ConfirmDialogService } from '../../../services/confirmDialog.service';
     EditComponentComponent,
     EditEnvironmentComponent,
     ConfirmationDialogComponent,
+    AddComponentEnvironmentComponent,
   ],
   entryComponents: [
     AddProductComponent,
@@ -78,6 +81,7 @@ import { ConfirmDialogService } from '../../../services/confirmDialog.service';
     EditComponentComponent,
     EditEnvironmentComponent,
     ConfirmationDialogComponent,
+    AddComponentEnvironmentComponent,
   ],
   providers: [
     CategoriesService,
@@ -86,6 +90,8 @@ import { ConfirmDialogService } from '../../../services/confirmDialog.service';
     ComponentTypeService,
     ComponentService,
     ConfirmDialogService,
+    EnvironmentService,
+    ComponentEnvironmentService,
   ],
 })
 export class AdminLayoutModule {}

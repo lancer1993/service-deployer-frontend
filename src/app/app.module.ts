@@ -15,6 +15,7 @@ import { ServiceTierComponent } from "./service-tier/service-tier.component";
 import { EnvironmentDataComponent } from "./environment-data/environment-data.component";
 import { ReleaseInformationComponent } from "./release-information/release-information.component";
 import { DeploymentComponent } from "./deployment/deployment.component";
+import { ComponentEnvironmentComponent } from './component-environment/component-environment.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { DeploymentComponent } from "./deployment/deployment.component";
     EnvironmentDataComponent,
     ReleaseInformationComponent,
     DeploymentComponent,
+    ComponentEnvironmentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

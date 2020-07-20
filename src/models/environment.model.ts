@@ -2,6 +2,10 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class EnvironmentModel {
-    environmentName: string;
-    description: string;
+  id: string;
+  environmentName: string;
+  description: string;
+  delete: boolean;
+  active: boolean;
+  createdAt: Date;
 }
