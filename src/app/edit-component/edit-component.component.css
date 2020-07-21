@@ -1,3 +1,11 @@
 .cancelButton {
   margin-left: 1rem;
 }
+
+.addButton {
+  margin: 2rem;
+}
+
+.clickable {
+  cursor: pointer;
+}

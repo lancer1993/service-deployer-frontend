@@ -4,17 +4,12 @@
       <div class="col-md-12">
         <div class="card">
           <div class="addButton">
-            <button
-              mat-raised-button
-              type="submit"
-              class="btn btn-danger pull-right"
-              routerLink="/add-environment"
-            >
+            <button mat-raised-button type="submit" class="btn btn-danger pull-right" routerLink="/add-environment">
               Add a New Environment
             </button>
           </div>
           <div class="card-header card-header-danger">
-            <h4 class="card-title">Environment List</h4>
+            <h4 class="card-title">Environments</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -33,13 +28,9 @@
                     Added By
                   </th>
                   <th></th>
-                  <th></th>
                 </thead>
                 <tbody>
-                  <tr
-                    style="text-align: left;"
-                    *ngFor="let environmentModel of environmentModels"
-                  >
+                  <tr style="text-align: left;" *ngFor="let environmentModel of environmentModels">
                     <td style="padding-left: 10px;">
                       {{ environmentModel.environmentName }}
                     </td>
@@ -52,15 +43,10 @@
                       }}
                     </td>
                     <td style="padding-left: 10px;"></td>
-                    <td class="clickable" routerLink="/edit-environment">
-                      <span class="material-icons">
-                        create
-                      </span>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        desktop_access_disabled
-                      </span>
+                    <td style="padding-left: 10px;">
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-right" routerLink="/edit-environment">
+                        Deploy
+                      </button>
                     </td>
                   </tr>
                 </tbody>

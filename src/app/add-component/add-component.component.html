@@ -10,7 +10,7 @@
             <form [formGroup]="form">
               <mat-form-field appearance="fill">
                 <mat-label>Component Type</mat-label>
-                <mat-select formControlName="componentTypeId">
+                <mat-select formControlName="componentTypeId" (selectionChange)="onChange($event)">
                   <mat-option
                     *ngFor="let componentType of componentTypes"
                     [value]="componentType.id"

@@ -24,6 +24,7 @@ export class AddComponentComponent implements OnInit {
   commonTypes: any;
   components: ComponentModel[] = [];
   commonComponents: any;
+  componentTypeName: string;
 
   createdDate = new Date();
 
@@ -38,6 +39,7 @@ export class AddComponentComponent implements OnInit {
   ngOnInit(): void {
     this.loadAllComponents();
     this.laodAllComponentTypes();
+
     if (this.component == null) {
       this.isUpdate = false;
       this.isNew = false;
@@ -45,6 +47,7 @@ export class AddComponentComponent implements OnInit {
         componentName: ["", Validators.required],
         repositoryUrl: ["", Validators.required],
         componentTypeId: ["", Validators.required],
+        componentTypeName: [""],
         delete: [false, Validators.required],
         active: [true, Validators.required],
         createdAt: new Date(),
@@ -54,6 +57,7 @@ export class AddComponentComponent implements OnInit {
         componentName: [this.component.componentName, Validators.required],
         repositoryUrl: [this.component.repositoryUrl, Validators.required],
         componentTypeId: [this.component.componentTypeId, Validators.required],
+        componentTypeName: [this.component.componentTypeName],
         delete: [this.component.delete, Validators.required],
         active: [this.component.active, Validators.required],
         createdAt: new Date(),
@@ -76,6 +80,7 @@ export class AddComponentComponent implements OnInit {
   }
 
   saveComponent(): void {
+    this.form.controls['componentTypeName'].setValue(this.componentTypeName);
     this.isUpdate = false;
     this.isNew = false;
     this.componentService
@@ -96,6 +101,7 @@ export class AddComponentComponent implements OnInit {
     newComponent.componentName = this.form.controls["componentName"].value;
     newComponent.repositoryUrl = this.form.controls["repositoryUrl"].value;
     newComponent.componentTypeId = this.form.controls["componentTypeId"].value;
+    newComponent.componentTypeName = this.componentTypeName;    
     newComponent.delete = false;
     newComponent.active = false;
 
@@ -113,6 +119,7 @@ export class AddComponentComponent implements OnInit {
       componentName: [""],
       repositoryUrl: [""],
       componentTypeId: [""],
+      componentTypeName: [""],
       delete: false,
       active: false,
       createdAt: new Date(),
@@ -133,6 +140,18 @@ export class AddComponentComponent implements OnInit {
       if (confirmed) {
         this.saveComponent();
       }
+    });
+  }
+
+  public onChange(event): void {
+    const newVal = event.value;
+    this.getComponentTypeName(newVal);
+  }
+
+  getComponentTypeName(id: string) : void{
+    this.componentTypeService.getComponentTypeById(id).subscribe((result) => {
+      console.log('COMPONET TYPE : ' + result.type);
+      this.componentTypeName = result.type;
     });
   }
 }

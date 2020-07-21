@@ -1,3 +1,7 @@
 .cancelButton {
   margin-left: 1rem;
 }
+
+.clickable {
+  cursor: pointer;
+}

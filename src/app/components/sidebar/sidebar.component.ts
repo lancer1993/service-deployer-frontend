@@ -7,14 +7,43 @@ declare interface RouteInfo {
   icon: string;
   class: string;
 }
+// export const ROUTES: RouteInfo[] = [
+//   { path: "/dashboard", title: "Dashboard", icon: "dashboard", class: "" },
+//   {
+//     path: "/service-tier",
+//     title: "Component",
+//     icon: "home_repair_service",
+//     class: "",
+//   },
+//   {
+//     path: "/environmet-data",
+//     title: "Environment",
+//     icon: "cloud_queue",
+//     class: "",
+//   },  
+//   {
+//     path: "/component-environment",
+//     title: "Component Environment",
+//     icon: "account_balance",
+//     class: "",
+//   },
+//   {
+//     path: "/release-information",
+//     title: "Release Information",
+//     icon: "new_releases",
+//     class: "",
+//   },
+//   {
+//     path: "/deployment",
+//     title: "Deployment",
+//     icon: "backup",
+//     class: "",
+//   },
+//   { path: "/user-profile", title: "User Profile", icon: "person", class: "" },
+// ];
+
 export const ROUTES: RouteInfo[] = [
   { path: "/dashboard", title: "Dashboard", icon: "dashboard", class: "" },
-  {
-    path: "/environmet-data",
-    title: "Environment",
-    icon: "cloud_queue",
-    class: "",
-  },
   {
     path: "/service-tier",
     title: "Component",
@@ -22,21 +51,9 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
-    path: "/component-environment",
-    title: "Component Environment",
-    icon: "account_balance",
-    class: "",
-  },
-  {
-    path: "/release-information",
-    title: "Release Information",
-    icon: "new_releases",
-    class: "",
-  },
-  {
-    path: "/deployment",
-    title: "Deployment",
-    icon: "backup",
+    path: "/environmet-data",
+    title: "Environment",
+    icon: "cloud_queue",
     class: "",
   },
   { path: "/user-profile", title: "User Profile", icon: "person", class: "" },

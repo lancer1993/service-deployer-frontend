@@ -1,6 +1,12 @@
 export class ReleaseModel {
-  conEnvId: string;
-  userId: string;
+  componentId: string;
+  componentName: string;
+  branch: string;
+  desciption: string;
   versionNumber: string;
   isReleased: boolean;
+  delete: boolean;
+  active: boolean;
+  createdAt: Date;
+  modifiedAt: Date;
 }

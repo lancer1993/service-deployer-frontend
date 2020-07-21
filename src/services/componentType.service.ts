@@ -14,5 +14,11 @@ export class ComponentTypeService {
       .get(HttpService.SERVICE_PATH + "component_type", { headers: null })
       .pipe(map((response) => response as ComponentTypeModel[]));
   }
+
+  getComponentTypeById(id: String): Observable<ComponentTypeModel> {
+    return this.http
+    .get(HttpService.SERVICE_PATH + 'component_type/' + id, { headers: null })
+    .pipe(map((response) => response as ComponentTypeModel));
+  }
   
 }
