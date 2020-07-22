@@ -1,8 +1,9 @@
 export class ReleaseModel {
   componentId: string;
   componentName: string;
+  repositoryUrl: string;
   branch: string;
-  desciption: string;
+  description: string;
   versionNumber: string;
   isReleased: boolean;
   delete: boolean;

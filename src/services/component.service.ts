@@ -4,7 +4,6 @@ import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { ComponentModel } from "../models/component.model";
 import { HttpService } from "../utils/http-service";
-import { ComponentsModule } from "app/components/components.module";
 
 @Injectable()
 export class ComponentService {
@@ -29,4 +28,11 @@ export class ComponentService {
       .put(HttpService.SERVICE_PATH + "component", component, { headers: null })
       .pipe(map((response) => response as ComponentModel));
   }
+
+  getComponentById(id: string): Observable<ComponentModel> {
+    return this.http
+      .get(HttpService.SERVICE_PATH + "component/" + id, { headers: null })
+      .pipe(map((response) => response as ComponentModel));
+  }
+
 }

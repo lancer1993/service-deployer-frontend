@@ -32,4 +32,11 @@ export class EnvironmentService {
       .get(HttpService.SERVICE_PATH + "environment", { headers: null })
       .pipe(map((response) => response as EnvironmentModel[]));
   }
+
+  getEnvironmentByd(id: String): Observable<EnvironmentModel> {
+    return this.http
+      .get(HttpService.SERVICE_PATH + "environment/" + id, { headers: null })
+      .pipe(map((response) => response as EnvironmentModel));
+  }
+
 }

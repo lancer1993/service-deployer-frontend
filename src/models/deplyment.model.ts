@@ -3,7 +3,8 @@ export class DeploymentModel {
   environmentId: string;
   componentName: string;
   environmentName: string;
-  desciption: string;
+  repositoryUrl: string;
+  description: string;
   isDeployed: boolean;
   delete: boolean;
   active: boolean;
