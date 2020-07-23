@@ -17,4 +17,10 @@ export class ReleaseService {
       .pipe(map((response) => response as ReleaseModel));
   }
 
+  getByComponent(id: string): Observable<ReleaseModel[]>{
+    return this.http
+      .get(HttpService.SERVICE_PATH + "release/search/getByComponent?componentId=" + id, {headers: null})
+      .pipe(map((response) => response as ReleaseModel[]));
+  }
+
 }

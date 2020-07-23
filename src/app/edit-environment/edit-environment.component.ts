@@ -27,7 +27,10 @@ export class EditEnvironmentComponent implements OnInit {
   component: ComponentModel;
   repositoryUrl: string;
   componentId: string;
-  componentName: string; 
+  componentName: string;
+  
+  deployments: DeploymentModel[] = [];
+  commonDeployment: any;
 
   constructor(private componentService: ComponentService, 
     private activatedroute: ActivatedRoute,
@@ -45,6 +48,7 @@ export class EditEnvironmentComponent implements OnInit {
     });
     this.loadAllComponents();
     this.getEnvironmentById(this.id);
+    this.getByEnvironment(this.id);
     
     if (this.deployment == null) {
       this.isUpdate = false;
@@ -126,6 +130,7 @@ export class EditEnvironmentComponent implements OnInit {
     });
 
     this.getEnvironmentById(this.id);
+    this.getByEnvironment(this.id);
   }
 
   addDeployment(): void {
@@ -163,6 +168,15 @@ export class EditEnvironmentComponent implements OnInit {
       if (confirmed) {
         this.addDeployment();
       }
+    });
+  }
+
+  getByEnvironment(id: string): void{
+    this.deploymentService.getByEnvironment(id).subscribe((result) =>{
+        this.commonDeployment = result;
+        console.log(this.commonDeployment);
+        this.deployments = this.commonDeployment._embedded.deployment;
+        console.log(this.deployments);
     });
   }
 

@@ -93,66 +93,30 @@
                   <th></th>
                 </thead>
                 <tbody>
-                  <tr style="text-align: left;">
+                  <tr style="text-align: left;" *ngFor="let release of releases">
                     <td style="padding-left: 10px;">
-                      Admin API
+                      {{ release.componentName }}
                     </td>
                     <td style="padding-left: 10px;">
-                      Master
+                      {{ release.branch }}
                     </td>
                     <td style="padding-left: 10px;">
-                      v1.0
+                      {{ release.versionNumber }}
                     </td>
                     <td style="padding-left: 10px;">
-                      This is for admin module
+                      {{ release.description }}
                     </td>
                     <td style="padding-left: 10px;">
-                      2020-07-16 13:28:45
+                      {{ release.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}
                     </td>
                     <td style="padding-left: 10px;">
-                      Terance Wijesuriya
+                      
                     </td>
                     <td style="padding-left: 10px;">
-                      2020-07-16 13:28:45
+                      
                     </td>
                     <td style="padding-left: 10px;">
-                      Terance Wijesuriya
-                    </td>
-                    <td style="padding-left: 10px;">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">
-                        Release Now
-                      </button>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </td>
-                  </tr>
-                  <tr style="text-align: left;">
-                    <td style="padding-left: 10px;">
-                      Order API
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Master
-                    </td>
-                    <td style="padding-left: 10px;">
-                      v2.5
-                    </td>
-                    <td style="padding-left: 10px;">
-                      This release is for order engine
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-15 22:28:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Sanjeewa Ariyarathne
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-15 22:28:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Sanjeewa Ariyarathne
+                      
                     </td>
                     <td style="padding-left: 10px;">
                       <button mat-raised-button type="submit" class="btn btn-danger pull-right">
@@ -164,43 +128,7 @@
                         delete
                       </span>
                     </td>
-                  </tr>
-                  <tr style="text-align: left;">
-                    <td style="padding-left: 10px;">
-                      Uber Eats API
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Master
-                    </td>
-                    <td style="padding-left: 10px;">
-                      v3.0
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Latest changes for uber eats api
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-14 17:45:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Thilina Kelum
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-14 17:45:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Thilina Kelum
-                    </td>
-                    <td style="padding-left: 10px;">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">
-                        Release Now
-                      </button>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </td>
-                  </tr>
+                  </tr>           
                 </tbody>
               </table>
             </div>

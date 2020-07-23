@@ -24,6 +24,9 @@ export class EditComponentComponent implements OnInit {
   component: ComponentModel;
   releaseModel: ReleaseModel;
 
+  releases: ReleaseModel[] = [];
+  commonRelease: any;
+
   constructor(private _Activatedroute: ActivatedRoute,
     private router: Router,
     private componentService: ComponentService,
@@ -40,6 +43,7 @@ export class EditComponentComponent implements OnInit {
     });
 
     this.getComponentsById(this.id);
+    this.getByComponent(this.id);
 
     if (this.releaseModel == null) {
       this.isUpdate = false;
@@ -120,6 +124,7 @@ export class EditComponentComponent implements OnInit {
     });
 
     this.getComponentsById(this.id);
+    this.getByComponent(this.id);
   }
 
   handleClick() {
@@ -136,6 +141,15 @@ export class EditComponentComponent implements OnInit {
       if (confirmed) {
         this.addRelease();
       }
+    });
+  }
+
+  getByComponent(id: string){
+    this.releaseService.getByComponent(id).subscribe((result) => {
+        this.commonRelease = result;
+        console.log(this.commonRelease);
+        this.releases = this.commonRelease._embedded.release;
+        console.log(this.releases);
     });
   }
 

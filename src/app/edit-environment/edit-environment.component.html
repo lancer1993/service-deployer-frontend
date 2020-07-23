@@ -11,10 +11,7 @@
               <mat-form-field appearance="fill">
                 <mat-label>Component</mat-label>
                 <mat-select formControlName="componentId" (selectionChange)="onChange($event)">
-                  <mat-option
-                    *ngFor="let component of components"
-                    [value]="component.id"
-                  >
+                  <mat-option *ngFor="let component of components" [value]="component.id">
                     {{ component.componentName }}
                   </mat-option>
                 </mat-select>
@@ -22,7 +19,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <mat-form-field class="example-full-width">
-                    <input matInput formControlName="environmentName" placeholder="Environment Name" type="text" [(ngModel)]="environment.environmentName"/>
+                    <input matInput formControlName="environmentName" placeholder="Environment Name" type="text"
+                      [(ngModel)]="environment.environmentName" />
                   </mat-form-field>
                 </div>
               </div>
@@ -80,93 +78,27 @@
                   <th></th>
                 </thead>
                 <tbody>
-                  <tr style="text-align: left;">
+                  <tr style="text-align: left;" *ngFor="let deployment of deployments">
                     <td style="padding-left: 10px;">
-                      Admin API
+                      {{ deployment.componentName }}
                     </td>
                     <td style="padding-left: 10px;">
-                      Local
+                      {{ deployment.environmentName }}
                     </td>
                     <td style="padding-left: 10px;">
-                      This is for admin module
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-16 13:28:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Terance Wijesuriya
+                      {{ deployment.description }}
                     </td>
                     <td style="padding-left: 10px;">
                       2020-07-16 13:28:45
                     </td>
                     <td style="padding-left: 10px;">
-                      Terance Wijesuriya
+                      {{ deployment.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}
                     </td>
                     <td style="padding-left: 10px;">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">
-                        Deploy Now
-                      </button>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </td>
-                  </tr>
-                  <tr style="text-align: left;">
-                    <td style="padding-left: 10px;">
-                      Order API
+                      
                     </td>
                     <td style="padding-left: 10px;">
-                      Local
-                    </td>
-                    <td style="padding-left: 10px;">
-                      This release is for order engine
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-15 22:28:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Sanjeewa Ariyarathne
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-15 22:28:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Sanjeewa Ariyarathne
-                    </td>
-                    <td style="padding-left: 10px;">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">
-                        Deploy Now
-                      </button>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </td>
-                  </tr>
-                  <tr style="text-align: left;">
-                    <td style="padding-left: 10px;">
-                      Uber Eats API
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Local
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Latest changes for uber eats api
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-14 17:45:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Thilina Kelum
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-14 17:45:45
-                    </td>
-                    <td style="padding-left: 10px;">
-                      Thilina Kelum
+                      
                     </td>
                     <td style="padding-left: 10px;">
                       <button mat-raised-button type="submit" class="btn btn-danger pull-right">
