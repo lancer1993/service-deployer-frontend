@@ -1,4 +1,5 @@
 export class ReleaseModel {
+  id: string;
   componentId: string;
   componentName: string;
   repositoryUrl: string;

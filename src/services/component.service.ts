@@ -35,4 +35,10 @@ export class ComponentService {
       .pipe(map((response) => response as ComponentModel));
   }
 
+  findByComponentName(componentName: string): Observable<ComponentModel[]> {
+    return this.http
+    .get(HttpService.SERVICE_PATH + "component/search/findByComponentName?componentName=" + componentName, {headers: null})
+    .pipe(map((response) => response as ComponentModel[]));
+  }
+
 }

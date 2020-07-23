@@ -1,4 +1,5 @@
 export class DeploymentModel {
+  id: string;
   componentId: string;
   environmentId: string;
   componentName: string;
