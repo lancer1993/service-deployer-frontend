@@ -5,7 +5,7 @@ export class DeploymentModel {
   componentName: string;
   environmentName: string;
   repositoryUrl: string;
-  description: string;
+  versionNumber: string;
   isDeployed: boolean;
   delete: boolean;
   active: boolean;

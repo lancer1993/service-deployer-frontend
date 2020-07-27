@@ -119,12 +119,12 @@
                       
                     </td>
                     <td style="padding-left: 10px;">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-right"> 
                         Release Now
                       </button>
                     </td>
                     <td class="clickable">
-                      <span class="material-icons">
+                      <span class="material-icons" (click)="deleteReleaseById(release.id)">
                         delete
                       </span>
                     </td>

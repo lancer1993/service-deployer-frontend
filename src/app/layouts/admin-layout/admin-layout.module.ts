@@ -35,10 +35,9 @@ import { ConfirmationDialogComponent } from "../../confirmation-dialog/confirmat
 import { ConfirmDialogService } from "../../../services/confirmDialog.service";
 import { EnvironmentService } from "../../../services/environment.service";
 import { AddComponentEnvironmentComponent } from "../../add-component-environment/add-component-environment.component";
-import { ComponentEnvironmentService } from "../../../services/componentEnvironment.service";
 import { DeploymentService } from "../../../services/deployment.service";
 import { ReleaseService } from '../../../services/release.service';
-import { DeploymentModel } from "models/deplyment.model";
+import { EnvironmentComponentService } from '../../../services/environmentComponent.service';
 
 @NgModule({
   imports: [
@@ -94,9 +93,9 @@ import { DeploymentModel } from "models/deplyment.model";
     ComponentService,
     ConfirmDialogService,
     EnvironmentService,
-    ComponentEnvironmentService,
     ReleaseService,
-    DeploymentService
+    DeploymentService,
+    EnvironmentComponentService
   ],
 })
 export class AdminLayoutModule { }

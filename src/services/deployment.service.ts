@@ -19,8 +19,14 @@ export class DeploymentService {
 
   getByEnvironment(id: string): Observable<DeploymentModel[]>{
     return this.http
-      .get(HttpService.SERVICE_PATH + "deployment/search/getByEnvironment?environmentId=" + id, {headers: null})
+      .get(HttpService.SERVICE_PATH + "deployment/search/findByEnvironmentId?environmentId=" + id, {headers: null})
       .pipe(map((response) => response as DeploymentModel[]));
+  }
+
+  deleteDeploymentById(id: string): Observable<any> {
+    return this.http
+    .delete(HttpService.SERVICE_PATH + "deployment/" + id, {headers: null})
+    .pipe(map((response) => response as any));
   }
 
 }

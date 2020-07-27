@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ComponentEnvironmentService } from "../../services/componentEnvironment.service";
-import { ComEnvDetailsModel } from "../../models/comEnvDetails.model";
+import { EnvironmentComponentService } from "../../services/environmentComponent.service";
+import { EnvironmentComponentModel } from "../../models/environmentComponent.model";
 
 @Component({
   selector: "app-component-environment",
@@ -8,23 +8,13 @@ import { ComEnvDetailsModel } from "../../models/comEnvDetails.model";
   styleUrls: ["./component-environment.component.css"],
 })
 export class ComponentEnvironmentComponent implements OnInit {
-  comEnvDetailsModels: ComEnvDetailsModel[] = [];
+  environmentComponentModels: EnvironmentComponentModel[] = [];
   comEnvDetails: any;
 
   constructor(
-    private componentEnvironmentService: ComponentEnvironmentService
+    private environmentComponentService: EnvironmentComponentService
   ) {}
 
   ngOnInit(): void {
-    this.loadAllComponentEnvironments();
-  }
-
-  loadAllComponentEnvironments(): void {
-    this.componentEnvironmentService
-      .getAllComponentEnvironments()
-      .subscribe((result) => {
-        this.comEnvDetails = result;
-        this.comEnvDetailsModels = this.comEnvDetails._embedded.com_env_details;
-      });
   }
 }

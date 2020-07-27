@@ -4,6 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
+            <h2 class="card-titile">{{ environment.environmentName }}</h2>
             <h4 class="card-title">Add Deployment</h4>
           </div>
           <div class="card-body">
@@ -16,24 +17,17 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-              <div class="row">
-                <div class="col-md-12">
-                  <mat-form-field class="example-full-width">
-                    <input matInput formControlName="environmentName" placeholder="Environment Name" type="text"
-                      [(ngModel)]="environment.environmentName" />
-                  </mat-form-field>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <mat-form-field class="example-full-width">
-                    <input matInput formControlName="description" placeholder="Description" type="text" />
-                  </mat-form-field>
-                </div>
-              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>Version Number</mat-label>
+                <mat-select (selectionChange)="onVersionChange($event)">
+                  <mat-option *ngFor="let releaseModel of releaseModels" [value]="releaseModel.versionNumber">
+                    {{ releaseModel.versionNumber }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
               <div class="pull-right">
                 <button mat-raised-button type="submit" class="btn btn-danger" (click)="handleClick()">
-                  Add
+                  Deploy
                 </button>
                 <button mat-raised-button type="button" routerLink="/environmet-data" class="cancelButton">
                   Cancel
@@ -57,16 +51,10 @@
                     Component
                   </th>
                   <th>
-                    Environment
+                    Deployed Version
                   </th>
                   <th>
-                    Description
-                  </th>
-                  <th>
-                    Added Time
-                  </th>
-                  <th>
-                    Added By
+                    Latest Version
                   </th>
                   <th>
                     Deploy Time
@@ -75,7 +63,6 @@
                     Deployed By
                   </th>
                   <th></th>
-                  <th></th>
                 </thead>
                 <tbody>
                   <tr style="text-align: left;" *ngFor="let deployment of deployments">
@@ -83,32 +70,23 @@
                       {{ deployment.componentName }}
                     </td>
                     <td style="padding-left: 10px;">
-                      {{ deployment.environmentName }}
+                      {{ deployment.versionNumber }}
                     </td>
                     <td style="padding-left: 10px;">
-                      {{ deployment.description }}
-                    </td>
-                    <td style="padding-left: 10px;">
-                      2020-07-16 13:28:45
+                      {{ latestRelease(deployment.componentId) }}
                     </td>
                     <td style="padding-left: 10px;">
                       {{ deployment.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}
                     </td>
                     <td style="padding-left: 10px;">
-                      
+
                     </td>
                     <td style="padding-left: 10px;">
-                      
                     </td>
                     <td style="padding-left: 10px;">
                       <button mat-raised-button type="submit" class="btn btn-danger pull-right">
                         Deploy Now
                       </button>
-                    </td>
-                    <td class="clickable">
-                      <span class="material-icons">
-                        delete
-                      </span>
                     </td>
                   </tr>
                 </tbody>

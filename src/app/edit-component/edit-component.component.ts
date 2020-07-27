@@ -119,10 +119,6 @@ export class EditComponentComponent implements OnInit {
       modifiedAt: new Date()
     });
 
-    this.sub = this._Activatedroute.paramMap.subscribe(params => {
-      this.id = params.get('id');
-    });
-
     this.getComponentsById(this.id);
     this.getByComponent(this.id);
   }
@@ -151,6 +147,13 @@ export class EditComponentComponent implements OnInit {
         this.releases = this.commonRelease._embedded.release;
         console.log(this.releases);
     });
+  }
+
+  deleteReleaseById(releaseId: string): void{
+    this.releaseService.deleteReleaseById(releaseId).subscribe((result) => {
+        console.log(result);
+        this.resetForm();   
+    });    
   }
 
 }
