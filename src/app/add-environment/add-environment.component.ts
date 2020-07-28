@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { EnvironmentService } from "services/environment.service";
 import { take } from "rxjs/operators";
 import { ConfirmDialogService } from "../../services/confirmDialog.service";
+import { ErrorDialogService } from 'services/errorDialog.service';
 
 @Component({
   selector: "app-add-environment",
@@ -25,7 +26,8 @@ export class AddEnvironmentComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private environmentService: EnvironmentService,
-    private dialogService: ConfirmDialogService
+    private dialogService: ConfirmDialogService,
+    private errorDialogService: ErrorDialogService
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +60,13 @@ export class AddEnvironmentComponent implements OnInit {
     this.environmentService.getEnvironments().subscribe((result) => {
       this.environments = result;
       this.environmentModels = this.environments._embedded.environment;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load environments",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -74,6 +83,13 @@ export class AddEnvironmentComponent implements OnInit {
         } else {
           console.log("ERROR");
         }
+      }, error => {
+        const options = {
+          title: "Error",
+          message: "Cannot save environment",
+          cancelText: "CANCEL",
+        };
+        this.errorDialogService.open(options);
       });
   }
 
@@ -92,6 +108,13 @@ export class AddEnvironmentComponent implements OnInit {
       .subscribe((newEnvironment) => {
         this.environmentModel = newEnvironment;
         alert("Environment Update Successfully!");
+      }, error => {
+        const options = {
+          title: "Error",
+          message: "Cannot update environment",
+          cancelText: "CANCEL",
+        };
+        this.errorDialogService.open(options);
       });
   }
 

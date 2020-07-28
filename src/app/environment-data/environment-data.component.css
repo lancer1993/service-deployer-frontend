@@ -5,3 +5,15 @@
 .clickable {
   cursor: pointer;
 }
+
+.btn-grubtech{
+  color: #fff;
+  background-color: #35ACEB;
+  border-color: #35ACEB;
+  box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);    
+}
+
+.card-header-danger:not(.card-header-icon):not(.card-header-text), .card.bg-danger, .card.card-rotate.bg-danger .front, .card.card-rotate.bg-danger .back {
+  background: linear-gradient(60deg, #9EC229, #9EC229);
+}
+

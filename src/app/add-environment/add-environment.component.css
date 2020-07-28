@@ -2,3 +2,6 @@
     margin-left: 1rem;
   }
   
+  .card-header-danger:not(.card-header-icon):not(.card-header-text), .card.bg-danger, .card.card-rotate.bg-danger .front, .card.card-rotate.bg-danger .back {
+    background: linear-gradient(60deg, #9EC229, #9EC229);
+  }

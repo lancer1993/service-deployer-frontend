@@ -1,17 +1,19 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class DeploymentModel {
+export class DeploymentEnhancedModel {
   id: string;
   componentId: string;
   environmentId: string;
   componentName: string;
   environmentName: string;
   repositoryUrl: string;
-  versionNumber: string;
+  deployedVersionNumber: string;
+  latestVersionNumber: string;
+  userId: string;
   isDeployed: boolean;
+  createdAt: string;
   delete: boolean;
   active: boolean;
-  createdAt: Date;
-  modifiedAt: Date;
+  
 }

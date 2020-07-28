@@ -7,7 +7,8 @@ import { ComponentModel } from "models/component.model";
 import { take } from "rxjs/operators";
 import { ConfirmDialogService } from "../../services/confirmDialog.service";
 import { Router } from "@angular/router";
-
+import { ErrorDialogService } from 'services/errorDialog.service';
+ 
 @Component({
   selector: "app-add-component",
   templateUrl: "./add-component.component.html",
@@ -33,8 +34,9 @@ export class AddComponentComponent implements OnInit {
     private componentTypeService: ComponentTypeService,
     private componentService: ComponentService,
     private dialogService: ConfirmDialogService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private errorDialogService: ErrorDialogService
+  ) { }
 
   ngOnInit(): void {
     this.loadAllComponents();
@@ -69,6 +71,13 @@ export class AddComponentComponent implements OnInit {
     this.componentTypeService.getComponentTypes().subscribe((result) => {
       this.commonTypes = result;
       this.componentTypes = this.commonTypes._embedded.component_type;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load component types",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -76,6 +85,13 @@ export class AddComponentComponent implements OnInit {
     this.componentService.getAllComponents().subscribe((result) => {
       this.commonComponents = result;
       this.components = this.commonComponents._embedded.component;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load components",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -89,10 +105,17 @@ export class AddComponentComponent implements OnInit {
       .subscribe((component) => {
         if (component) {
           this.resetForm();
-          this.router.navigate(["/service-tier"]);
+          this.router.navigate(["/component"]);
         } else {
           console.log("ERROR");
         }
+      }, error => {
+        const options = {
+          title: "Error",
+          message: "Cannot save the component",
+          cancelText: "CANCEL",
+        };
+        this.errorDialogService.open(options);
       });
   }
 
@@ -101,7 +124,7 @@ export class AddComponentComponent implements OnInit {
     newComponent.componentName = this.form.controls["componentName"].value;
     newComponent.repositoryUrl = this.form.controls["repositoryUrl"].value;
     newComponent.componentTypeId = this.form.controls["componentTypeId"].value;
-    newComponent.componentTypeName = this.componentTypeName;    
+    newComponent.componentTypeName = this.componentTypeName;
     newComponent.delete = false;
     newComponent.active = false;
 
@@ -111,6 +134,13 @@ export class AddComponentComponent implements OnInit {
       .subscribe((newComponent) => {
         this.component = newComponent;
         alert("Product Update Successfully!");
+      }, error => {
+        const options = {
+          title: "Error",
+          message: "Cannot update the component",
+          cancelText: "CANCEL",
+        };
+        this.errorDialogService.open(options);
       });
   }
 
@@ -148,10 +178,17 @@ export class AddComponentComponent implements OnInit {
     this.getComponentTypeName(newVal);
   }
 
-  getComponentTypeName(id: string) : void{
+  getComponentTypeName(id: string): void {
     this.componentTypeService.getComponentTypeById(id).subscribe((result) => {
       console.log('COMPONET TYPE : ' + result.type);
       this.componentTypeName = result.type;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot get the component name",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 }

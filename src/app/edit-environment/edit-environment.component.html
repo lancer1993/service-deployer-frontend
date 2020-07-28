@@ -5,28 +5,37 @@
         <div class="card">
           <div class="card-header card-header-danger">
             <h2 class="card-titile">{{ environment.environmentName }}</h2>
-            <h4 class="card-title">Add Deployment</h4>
+            <h4 class="card-title">Add Component</h4>
           </div>
           <div class="card-body">
             <form [formGroup]="form">
-              <mat-form-field appearance="fill">
-                <mat-label>Component</mat-label>
-                <mat-select formControlName="componentId" (selectionChange)="onChange($event)">
-                  <mat-option *ngFor="let component of components" [value]="component.id">
-                    {{ component.componentName }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Version Number</mat-label>
-                <mat-select (selectionChange)="onVersionChange($event)">
-                  <mat-option *ngFor="let releaseModel of releaseModels" [value]="releaseModel.versionNumber">
-                    {{ releaseModel.versionNumber }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Component</mat-label>
+                    <mat-select formControlName="componentId" (selectionChange)="onChange($event)">
+                      <mat-option *ngFor="let component of components" [value]="component.id">
+                        {{ component.componentName }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Version Number</mat-label>
+                    <mat-select (selectionChange)="onVersionChange($event)">
+                      <mat-option *ngFor="let releaseModel of releaseModels" [value]="releaseModel.versionNumber">
+                        {{ releaseModel.versionNumber }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
               <div class="pull-right">
-                <button mat-raised-button type="submit" class="btn btn-danger" (click)="handleClick()">
+                <button mat-raised-button type="submit" class="btn" (click)="handleClick()" style="color: #fff;
+                background-color: #35ACEB;
+                border-color: #35ACEB;
+                box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);">
                   Deploy
                 </button>
                 <button mat-raised-button type="button" routerLink="/environmet-data" class="cancelButton">
@@ -41,12 +50,12 @@
           <div class="addButton">
           </div>
           <div class="card-header card-header-danger">
-            <h4 class="card-title">Deployments</h4>
+            <h4 class="card-title">Components</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
-                <thead class="text-primary">
+                <thead>
                   <th>
                     Component
                   </th>
@@ -65,18 +74,18 @@
                   <th></th>
                 </thead>
                 <tbody>
-                  <tr style="text-align: left;" *ngFor="let deployment of deployments">
+                  <tr style="text-align: left;" *ngFor="let deployment of deploymentEnhancedModels">
                     <td style="padding-left: 10px;">
                       {{ deployment.componentName }}
                     </td>
                     <td style="padding-left: 10px;">
-                      {{ deployment.versionNumber }}
+                      {{ deployment.deployedVersionNumber }}
                     </td>
                     <td style="padding-left: 10px;">
-                      {{ latestRelease(deployment.componentId) }}
+                      {{ deployment.latestVersionNumber }}
                     </td>
                     <td style="padding-left: 10px;">
-                      {{ deployment.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}
+                      {{ deployment.createdAt }}
                     </td>
                     <td style="padding-left: 10px;">
 
@@ -84,7 +93,10 @@
                     <td style="padding-left: 10px;">
                     </td>
                     <td style="padding-left: 10px;">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">
+                      <button mat-raised-button type="submit" class="btn pull-right" style="color: #fff;
+                      background-color: #35ACEB;
+                      border-color: #35ACEB;
+                      box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);">
                         Deploy Now
                       </button>
                     </td>

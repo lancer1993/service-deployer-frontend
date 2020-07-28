@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import {
   MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
+  MatDialogRef
 } from "@angular/material/dialog";
 import { Observable } from "rxjs";
 import { map, take } from "rxjs/operators";

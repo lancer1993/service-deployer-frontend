@@ -9,7 +9,7 @@
           <div class="card-body">
             <form [formGroup]="form">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <mat-form-field class="example-full-width">
                     <input
                       matInput
@@ -19,9 +19,7 @@
                     />
                   </mat-form-field>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <mat-form-field class="example-full-width">
                     <input
                       matInput
@@ -37,7 +35,11 @@
                   mat-raised-button
                   type="submit"
                   *ngIf="!isUpdate"
-                  class="btn btn-danger"
+                  class="btn"
+                  style="color: #fff;
+                      background-color: #35ACEB;
+                      border-color: #35ACEB;
+                      box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);"
                   (click)="handleClick()"
                 >
                   Save
@@ -46,7 +48,11 @@
                   mat-raised-button
                   type="submit"
                   *ngIf="isUpdate"
-                  class="btn btn-danger"
+                  class="btn"
+                  style="color: #fff;
+                      background-color: #35ACEB;
+                      border-color: #35ACEB;
+                      box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);"
                   (click)="updateComponent()"
                 >
                   Update
@@ -55,7 +61,11 @@
                   mat-raised-button
                   type="submit"
                   *ngIf="isUpdate"
-                  class="btn btn-danger"
+                  class="btn"
+                  style="color: #fff;
+                      background-color: #35ACEB;
+                      border-color: #35ACEB;
+                      box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);"
                 >
                   Delete
                 </button>

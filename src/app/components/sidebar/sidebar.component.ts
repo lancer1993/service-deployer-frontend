@@ -56,7 +56,6 @@ export const ROUTES: RouteInfo[] = [
     icon: "cloud_queue",
     class: "",
   },
-  { path: "/user-profile", title: "User Profile", icon: "person", class: "" },
 ];
 
 @Component({

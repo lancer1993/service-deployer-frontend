@@ -13,6 +13,8 @@ import { EnvironmentComponentService } from '../../services/environmentComponent
 import { ReleaseService } from '../../services/release.service';
 import { ReleaseModel } from '../../models/release.model';
 import { EnvironmentComponentModel } from 'models/environmentComponent.model';
+import { ErrorDialogService } from 'services/errorDialog.service';
+import { DeploymentEnhancedModel } from '../../models/deploymentEnhanced.model'
 
 @Component({
   selector: 'app-edit-environment',
@@ -40,6 +42,7 @@ export class EditEnvironmentComponent implements OnInit {
   commonRelease: any;
 
   environmentComponentModel: EnvironmentComponentModel;
+  deploymentEnhancedModels: DeploymentEnhancedModel[];
 
   constructor(private componentService: ComponentService,
     private activatedroute: ActivatedRoute,
@@ -49,7 +52,8 @@ export class EditEnvironmentComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogService: ConfirmDialogService,
     private environmentComponentService: EnvironmentComponentService,
-    private releaseService: ReleaseService) { }
+    private releaseService: ReleaseService,
+    private errorDialogService: ErrorDialogService) { }
 
   sub;
 
@@ -98,6 +102,13 @@ export class EditEnvironmentComponent implements OnInit {
   getEnvironmentById(id: string): void {
     this.environmentService.getEnvironmentByd(id).subscribe((result) => {
       this.environment = result;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load the environment",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -107,6 +118,13 @@ export class EditEnvironmentComponent implements OnInit {
       this.componentId = this.component.id;
       this.repositoryUrl = this.component.repositoryUrl;
       this.componentName = this.component.componentName;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot component details",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -156,6 +174,13 @@ export class EditEnvironmentComponent implements OnInit {
         } else {
           console.log("ERROR");
         }
+      }, error => {
+        const options = {
+          title: "Error",
+          message: "Cannot add the deployment",
+          cancelText: "CANCEL",
+        };
+        this.errorDialogService.open(options);
       });
   }
 
@@ -179,14 +204,27 @@ export class EditEnvironmentComponent implements OnInit {
 
   getByEnvironment(id: string): void {
     this.deploymentService.getByEnvironment(id).subscribe((result) => {
-      this.commonDeployment = result;
-      this.deployments = this.commonDeployment._embedded.deployment;
+      this.deploymentEnhancedModels = result;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load deployments",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
   findComponentsNotInEnvironment(environmentId: string): void {
     this.environmentComponentService.findComponentsNotInEnvironment(environmentId).subscribe((result) => {
       this.components = result;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load components for the environment",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -195,15 +233,17 @@ export class EditEnvironmentComponent implements OnInit {
     this.releaseService.findByComponentIdOrderByCreatedAtDesc(idComponent).subscribe((result) => {
       this.commonRelease = result;
       this.releaseModels = this.commonRelease._embedded.release;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot find component versions",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
   saveEnvironmentComponent(): void {
-
-    console.log(this.componentId);
-    console.log(this.componentName);
-    console.log(this.environment.id);
-    console.log(this.environment.environmentName);
 
     const envComponent = new EnvironmentComponentModel();
     envComponent.componentId = this.componentId;
@@ -228,15 +268,7 @@ export class EditEnvironmentComponent implements OnInit {
 
   public onVersionChange(event): void {
     const newVal = event.value;
-    console.log('RELEASE VERSION ' + newVal);
     this.versionNumber = newVal;
-  }
-
-  latestRelease(idComponent: string): any{
-    this.releaseService.latestRelease(idComponent).subscribe((result) => {
-      console.log(result);
-      return result.versionNumber;
-    });
   }
 
 }

@@ -38,6 +38,8 @@ import { AddComponentEnvironmentComponent } from "../../add-component-environmen
 import { DeploymentService } from "../../../services/deployment.service";
 import { ReleaseService } from '../../../services/release.service';
 import { EnvironmentComponentService } from '../../../services/environmentComponent.service';
+import { ErrorDialogService } from '../../../services/errorDialog.service';
+import { ErrorDialogComponent } from '../../error-dialog/error-dialog.component';
 
 @NgModule({
   imports: [
@@ -72,6 +74,7 @@ import { EnvironmentComponentService } from '../../../services/environmentCompon
     EditEnvironmentComponent,
     ConfirmationDialogComponent,
     AddComponentEnvironmentComponent,
+    ErrorDialogComponent,
   ],
   entryComponents: [
     AddProductComponent,
@@ -84,6 +87,7 @@ import { EnvironmentComponentService } from '../../../services/environmentCompon
     EditEnvironmentComponent,
     ConfirmationDialogComponent,
     AddComponentEnvironmentComponent,
+    ErrorDialogComponent,
   ],
   providers: [
     CategoriesService,
@@ -95,7 +99,8 @@ import { EnvironmentComponentService } from '../../../services/environmentCompon
     EnvironmentService,
     ReleaseService,
     DeploymentService,
-    EnvironmentComponentService
+    EnvironmentComponentService,
+    ErrorDialogService
   ],
 })
 export class AdminLayoutModule { }

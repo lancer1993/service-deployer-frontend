@@ -25,9 +25,4 @@ export class ProductService {
         return this.http.get(HttpService.SERVICE_PATH + 'product', {headers: null})
             .pipe(map(response => response as ProductModel[]));
     }
-
-    // deleteProduct(product: ProductModel): Observable<ProductModel> {
-    //     return this.http.delete(HttpService.SERVICE_PATH + 'product' + product.productId, {headers: null})
-    //         .pipe(map(response => response as ProductModel));
-    // }
 }

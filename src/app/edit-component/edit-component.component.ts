@@ -7,6 +7,7 @@ import { ReleaseModel } from 'models/release.model';
 import { ReleaseService } from '../../services/release.service';
 import { take } from "rxjs/operators";
 import { ConfirmDialogService } from "../../services/confirmDialog.service";
+import { ErrorDialogService } from 'services/errorDialog.service';
 
 @Component({
   selector: 'app-edit-component',
@@ -32,7 +33,8 @@ export class EditComponentComponent implements OnInit {
     private componentService: ComponentService,
     private formBuilder: FormBuilder,
     private releaseService: ReleaseService,
-    private dialogService: ConfirmDialogService) { }
+    private dialogService: ConfirmDialogService,
+    private errorDialogService: ErrorDialogService) { }
 
   sub;
 
@@ -81,6 +83,13 @@ export class EditComponentComponent implements OnInit {
   getComponentsById(id: string): void {
     this.componentService.getComponentById(id).subscribe((result) => {
       this.component = result;
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load the component",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -101,6 +110,13 @@ export class EditComponentComponent implements OnInit {
         } else {
           console.log("ERROR");
         }
+      }, error => {
+        const options = {
+          title: "Error",
+          message: "Cannot add the release",
+          cancelText: "CANCEL",
+        };
+        this.errorDialogService.open(options);
       });
   }
 
@@ -146,6 +162,13 @@ export class EditComponentComponent implements OnInit {
         console.log(this.commonRelease);
         this.releases = this.commonRelease._embedded.release;
         console.log(this.releases);
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot load releases",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });
   }
 
@@ -153,6 +176,13 @@ export class EditComponentComponent implements OnInit {
     this.releaseService.deleteReleaseById(releaseId).subscribe((result) => {
         console.log(result);
         this.resetForm();   
+    }, error => {
+      const options = {
+        title: "Error",
+        message: "Cannot delete the release",
+        cancelText: "CANCEL",
+      };
+      this.errorDialogService.open(options);
     });    
   }
 
