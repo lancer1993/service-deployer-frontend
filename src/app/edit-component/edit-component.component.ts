@@ -1,13 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ComponentService } from "../../services/component.service";
-import { ComponentModel } from "models/component.model";
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ReleaseModel } from 'models/release.model';
-import { ReleaseService } from '../../services/release.service';
-import { take } from "rxjs/operators";
-import { ConfirmDialogService } from "../../services/confirmDialog.service";
-import { ErrorDialogService } from 'services/errorDialog.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ComponentService} from '../../services/component.service';
+import {ComponentModel} from 'models/component.model';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ReleaseModel} from 'models/release.model';
+import {ReleaseService} from '../../services/release.service';
+import {take} from 'rxjs/operators';
+import {ConfirmDialogService} from '../../services/confirmDialog.service';
+import {ErrorDialogService} from 'services/errorDialog.service';
 
 @Component({
   selector: 'app-edit-component',

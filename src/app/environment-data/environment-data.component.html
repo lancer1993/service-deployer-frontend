@@ -21,7 +21,7 @@
                   <th>
                     Description
                   </th>
-                  <th>
+                  <th style="text-align: center;">
                     Added Time
                   </th>
                   <th>
@@ -37,7 +37,7 @@
                     <td style="padding-left: 10px;">
                       {{ environmentModel.description }}
                     </td>
-                    <td style="padding-left: 10px;">
+                    <td style="padding-left: 10px; text-align: center;">
                       {{
                         environmentModel.createdAt | date: "yyyy-MM-dd HH:mm:ss"
                       }}
@@ -45,7 +45,7 @@
                     <td style="padding-left: 10px;"></td>
                     <td style="padding-left: 10px;">
                       <button mat-raised-button type="submit" class="btn btn-grubtech pull-right" [routerLink]="['/edit-environment', environmentModel.id]">
-                        Deploy
+                        View
                       </button>
                     </td>
                   </tr>
