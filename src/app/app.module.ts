@@ -18,34 +18,49 @@ import {AddEnvironmentComponent} from './add-environment/add-environment.compone
 import {EditComponentComponent} from './edit-component/edit-component.component';
 import {EditEnvironmentComponent} from './edit-environment/edit-environment.component';
 import {ConfirmationDialogComponent} from './confirmation-dialog/confirmation-dialog.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRippleModule} from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
-    NgxSpinnerModule,
-  ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    ServiceTierComponent,
-    EnvironmentDataComponent,
-    DashboardComponent,
-    AddComponentComponent,
-    AddEnvironmentComponent,
-    EditComponentComponent,
-    EditEnvironmentComponent,
-    ConfirmationDialogComponent,
-  ],
-  providers: [
-
-  ],
-  bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+    imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ComponentsModule,
+        RouterModule,
+        AppRoutingModule,
+        NgxSpinnerModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatDialogModule,
+        MatTooltipModule,
+    ],
+    declarations: [
+        AppComponent,
+        AdminLayoutComponent,
+        ServiceTierComponent,
+        EnvironmentDataComponent,
+        DashboardComponent,
+        AddComponentComponent,
+        AddEnvironmentComponent,
+        EditComponentComponent,
+        EditEnvironmentComponent,
+        ConfirmationDialogComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule {
+}

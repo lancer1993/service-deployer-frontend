@@ -1,65 +1,80 @@
 <div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="addButton">
-            <button mat-raised-button type="submit" class="btn btn-grubtech pull-right" routerLink="/add-component">
-              Add a New Component
-            </button>
-          </div>
-          <div class="card-header card-header-danger">
-            <h4 class="card-title">Components</h4>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <th>
-                    Component Name
-                  </th>
-                  <th>
-                    Component Type
-                  </th>
-                  <th>
-                    Repository URL
-                  </th>
-                  <th style="text-align: center;">
-                    Added Time
-                  </th>
-                  <th>
-                    Added By
-                  </th>
-                  <th></th>
-                </thead>
-                <tbody>
-                  <tr style="text-align: left;" *ngFor="let component of components">
-                    <td style="padding-left: 10px;">
-                      {{ component.componentName }}
-                    </td>
-                    <td style="padding-left: 10px;">
-                      {{ component.componentTypeName }}
-                    </td>
-                    <td style="padding-left: 10px;">
-                      {{ component.repositoryUrl }}
-                    </td>
-                    <td style="padding-left: 10px; text-align: center;">
-                      {{ component.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}
-                    </td>
-                    <td style="padding-left: 10px;"></td>
-                    <td style="padding-left: 10px;">
-                      <button mat-raised-button type="submit" class="btn btn-grubtech pull-right"
-                        [routerLink]="['/edit-component', component.id]">
-                        Release
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="addButton">
+                        <button mat-raised-button type="submit" class="btn pull-right" style="color: #fff;
+  background-color: #35ACEB;
+  border-color: #35ACEB;
+  box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12); "
+                                routerLink="/add-component">
+                            Add a New Component
+                        </button>
+                    </div>
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Components</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <th>
+                                    Component Name
+                                </th>
+                                <th>
+                                    Component Type
+                                </th>
+                                <th>
+                                    Repository URL
+                                </th>
+                                <th style="text-align: center;">
+                                    Added Time
+                                </th>
+                                <th>
+                                    Added By
+                                </th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                <tr style="text-align: left;" *ngFor="let component of components">
+                                    <td style="padding-left: 10px;">
+                                        {{ component.componentName }}
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        {{ component.componentTypeName }}
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        {{ component.repositoryUrl }}
+                                    </td>
+                                    <td style="padding-left: 10px; text-align: center;">
+                                        {{ component.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}
+                                    </td>
+                                    <td style="padding-left: 10px;"></td>
+                                    <td style="padding-left: 10px;">
+                                        <button mat-raised-button type="submit" class="btn pull-right" style="color: #fff;
+  background-color: #35ACEB;
+  border-color: #35ACEB;
+  box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12); "
+                                                [routerLink]="['/edit-component', component.id]">
+                                            Release
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+<ngx-spinner
+        bdColor="rgba(51,51,51,0.8)"
+        size="medium"
+        color="#fff"
+        type="ball-scale-multiple"
+>
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
